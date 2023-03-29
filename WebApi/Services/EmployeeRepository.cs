@@ -15,8 +15,11 @@ namespace WebApi.Services
         }
         public EmployeeModel Add(EmployeeEntity e)
         {
-
              _context.Employees.Add(e);
+            _context.SaveChanges();
+            var ne = _context.Entry(e);
+            ne.Reference(a => a.Department).Load();
+            ne.Reference(a => a.Position).Load();
             var employeeModel = new EmployeeModel
             {
                 EmployeeID = e.EmployeeID,
@@ -26,13 +29,12 @@ namespace WebApi.Services
                 Email = e.Email,
                 Address = e.Address,
                 DateOfBirth = e.DateOfBirth,
-                Department = new DepartmentModel { Id = e.Department.Id, Name = e.Department.Name },
-                Position = new PositionModel { Id = e.Position.Id, Name = e.Position.Name },
+                Department = new DepartmentModel { Id = e.Department.DepartmentID, Name = e.Department.Name },
+                Position = new PositionModel { Id = e.Position.PositionID, Name = e.Position.Name },
                 StartDate = e.StartDate,
                 EndDate = e.EndDate,
                 Status = e.Status
             };
-            _context.SaveChanges();
             return employeeModel;
         }
 
@@ -59,8 +61,8 @@ namespace WebApi.Services
                     Email = e.Email,
                     Address = e.Address,
                     DateOfBirth = e.DateOfBirth,
-                    Department = new DepartmentModel { Id = e.Department.Id, Name = e.Department.Name },
-                    Position = new PositionModel { Id = e.Position.Id, Name = e.Position.Name },
+                    Department = new DepartmentModel { Id = e.Department.DepartmentID, Name = e.Department.Name },
+                    Position = new PositionModel { Id = e.Position.PositionID, Name = e.Position.Name },
                     StartDate = e.StartDate,
                     EndDate = e.EndDate,
                     Status = e.Status,
@@ -80,8 +82,8 @@ namespace WebApi.Services
                 Email = e.Email,
                 Address = e.Address,
                 DateOfBirth = e.DateOfBirth,
-                Department = new DepartmentModel { Id = e.Department.Id, Name = e.Department.Name },
-                Position = new PositionModel { Id = e.Position.Id, Name = e.Position.Name },
+                Department = new DepartmentModel { Id = e.Department.DepartmentID, Name = e.Department.Name },
+                Position = new PositionModel { Id = e.Position.PositionID, Name = e.Position.Name },
                 StartDate = e.StartDate,
                 EndDate = e.EndDate,
                 Status = e.Status,
@@ -100,8 +102,8 @@ namespace WebApi.Services
                 e.Email = employeeVM.Email;
                 e.Address = employeeVM.Address;
                 e.DateOfBirth = employeeVM.DateOfBirth;
-                e.Department = new DepartmentEntity { Id = employeeVM.Department.Id, Name = employeeVM.Department.Name };
-                e.Position = new PositionEntity { Id = employeeVM.Position.Id, Name = employeeVM.Position.Name };
+                e.Department = new DepartmentEntity { DepartmentID = employeeVM.Department.Id, Name = employeeVM.Department.Name };
+                e.Position = new PositionEntity { PositionID = employeeVM.Position.Id, Name = employeeVM.Position.Name };
                 e.StartDate = employeeVM.StartDate;
                 e.EndDate = employeeVM.EndDate;
                 e.Status = employeeVM.Status;
@@ -120,8 +122,8 @@ namespace WebApi.Services
                 Email = e.Email,
                 Address = e.Address,
                 DateOfBirth = e.DateOfBirth,
-                Department = new DepartmentModel { Id = e.Department.Id, Name = e.Department.Name },
-                Position = new PositionModel { Id = e.Position.Id, Name = e.Position.Name },
+                Department = new DepartmentModel { Id = e.Department.DepartmentID, Name = e.Department.Name },
+                Position = new PositionModel { Id = e.Position.PositionID, Name = e.Position.Name },
                 StartDate = e.StartDate,
                 EndDate = e.EndDate,
                 Status = e.Status,

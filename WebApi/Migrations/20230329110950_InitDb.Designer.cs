@@ -12,8 +12,8 @@ using WebApi.Data;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230329080340_Add-Migration ET")]
-    partial class AddMigrationET
+    [Migration("20230329110950_InitDb")]
+    partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,9 +42,8 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AttendanceStatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AttendanceStatus")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -100,9 +99,8 @@ namespace WebApi.Migrations
                     b.Property<DateTime>("InterviewDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("InterviewResult")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("InterviewResult")
+                        .HasColumnType("int");
 
                     b.Property<string>("Interviewer")
                         .IsRequired()
@@ -212,8 +210,7 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndDate")
-                        .IsRequired()
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FullName")
@@ -263,9 +260,8 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EvaluationResult")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("EvaluationResult")
+                        .HasColumnType("int");
 
                     b.Property<double>("EvaluationScore")
                         .HasColumnType("float");

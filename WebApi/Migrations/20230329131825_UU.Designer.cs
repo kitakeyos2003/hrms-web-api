@@ -12,8 +12,8 @@ using WebApi.Data;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230329075831_UE")]
-    partial class UE
+    [Migration("20230329131825_UU")]
+    partial class UU
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,9 +42,8 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("AttendanceStatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("AttendanceStatus")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -100,21 +99,15 @@ namespace WebApi.Migrations
                     b.Property<DateTime>("InterviewDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("InterviewResult")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("InterviewResult")
+                        .HasColumnType("int");
 
                     b.Property<string>("Interviewer")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OfferDetails")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("OfferStatus")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("OfferStatus")
+                        .HasColumnType("int");
 
                     b.Property<int>("PositionApplied")
                         .HasColumnType("int");
@@ -180,17 +173,17 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Data.DepartmentEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("DepartmentID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentID"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("DepartmentID");
 
                     b.ToTable("department");
                 });
@@ -217,8 +210,7 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("EndDate")
-                        .IsRequired()
+                    b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FullName")
@@ -268,9 +260,8 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("EvaluationResult")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("EvaluationResult")
+                        .HasColumnType("int");
 
                     b.Property<double>("EvaluationScore")
                         .HasColumnType("float");
@@ -290,17 +281,17 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Data.PositionEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PositionID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PositionID"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("PositionID");
 
                     b.ToTable("position");
                 });

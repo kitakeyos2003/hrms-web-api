@@ -32,19 +32,9 @@ namespace WebApi.Controllers
                     Email = model.Email,
                     Address = model.Address,
                     DepartmentId = model.Department.Id,
-                    Department = new DepartmentEntity
-                    {
-                        Id = model.Department.Id,
-                        Name = model.Department.Name
-                    },
                     PositionId = model.Position.Id,
-                    Position = new PositionEntity
-                    {
-                        Id = model.Position.Id,
-                        Name =model.Position.Name
-                    },
                     StartDate = model.StartDate,
-                    EndDate= model.EndDate,
+                    EndDate = model.EndDate,
                     Status = model.Status
                 })); 
             }

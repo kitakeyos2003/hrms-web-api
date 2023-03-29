@@ -7,7 +7,7 @@ namespace WebApi.Data
     public class DepartmentEntity
     {
         [Key]
-        public int Id { get; set; }
+        public int DepartmentID { get; set; }
         [Required]
         public string Name { get; set; }
     }

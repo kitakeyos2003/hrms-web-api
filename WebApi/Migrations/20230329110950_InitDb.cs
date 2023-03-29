@@ -65,9 +65,8 @@ namespace WebApi.Migrations
                     Skills = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     InterviewDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Interviewer = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    InterviewResult = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OfferStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OfferDetails = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    InterviewResult = table.Column<int>(type: "int", nullable: false),
+                    OfferStatus = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -100,7 +99,6 @@ namespace WebApi.Migrations
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DepartmentId = table.Column<int>(type: "int", nullable: false),
                     PositionId = table.Column<int>(type: "int", nullable: false),
-                    Salary = table.Column<double>(type: "float", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false)
@@ -162,7 +160,7 @@ namespace WebApi.Migrations
                     LateTime = table.Column<TimeSpan>(type: "time", nullable: false),
                     EarlyLeaveTime = table.Column<TimeSpan>(type: "time", nullable: false),
                     Overtime = table.Column<TimeSpan>(type: "time", nullable: false),
-                    AttendanceStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AttendanceStatus = table.Column<int>(type: "int", nullable: false),
                     AttendanceNote = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -211,7 +209,7 @@ namespace WebApi.Migrations
                     EvaluationScore = table.Column<double>(type: "float", nullable: false),
                     ManagerComment = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EmployeeComment = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EvaluationResult = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EvaluationResult = table.Column<int>(type: "int", nullable: false),
                     ImprovementPlan = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>

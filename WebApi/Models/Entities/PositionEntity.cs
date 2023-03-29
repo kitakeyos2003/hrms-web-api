@@ -7,7 +7,7 @@ namespace WebApi.Data
     public class PositionEntity
     {
         [Key]
-        public int Id { get; set; }
+        public int PositionID { get; set; }
         [Required]
         public string Name { get; set; }
     }
