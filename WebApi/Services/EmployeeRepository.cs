@@ -1,4 +1,6 @@
-﻿using WebApi.Data;
+﻿using DevExpress.XtraSpellChecker.Parser;
+using System.Net;
+using WebApi.Data;
 using WebApi.Models;
 
 namespace WebApi.Services
@@ -13,18 +15,22 @@ namespace WebApi.Services
         }
         public EmployeeModel Add(EmployeeEntity e)
         {
-            
-            var m = _context.Employees.Add(e);
+
+             _context.Employees.Add(e);
             var employeeModel = new EmployeeModel
             {
-                Id = e.Id,
+                EmployeeID = e.EmployeeID,
                 FullName = e.FullName,
                 Gender = e.Gender,
                 PhoneNumber = e.PhoneNumber,
+                Email = e.Email,
                 Address = e.Address,
-                BirthDay = e.BirthDay,
+                DateOfBirth = e.DateOfBirth,
                 Department = new DepartmentModel { Id = e.Department.Id, Name = e.Department.Name },
                 Position = new PositionModel { Id = e.Position.Id, Name = e.Position.Name },
+                StartDate = e.StartDate,
+                EndDate = e.EndDate,
+                Status = e.Status
             };
             _context.SaveChanges();
             return employeeModel;
@@ -32,7 +38,7 @@ namespace WebApi.Services
 
         public void Delete(int id)
         {
-            var e = _context.Employees.SingleOrDefault(e => e.Id == id);
+            var e = _context.Employees.SingleOrDefault(e => e.EmployeeID == id);
             if (e != null)
             {
                 _context.Employees.Remove(e);
@@ -41,19 +47,23 @@ namespace WebApi.Services
 
         public EmployeeModel Get(int id)
         {
-            var e = _context.Employees.SingleOrDefault(e => e.Id == id);
+            var e = _context.Employees.SingleOrDefault(e => e.EmployeeID == id);
             if (e != null)
             {
                 return new EmployeeModel
                 {
-                    Id = e.Id,
+                    EmployeeID = e.EmployeeID,
                     FullName = e.FullName,
                     Gender = e.Gender,
                     PhoneNumber = e.PhoneNumber,
+                    Email = e.Email,
                     Address = e.Address,
-                    BirthDay = e.BirthDay,
+                    DateOfBirth = e.DateOfBirth,
                     Department = new DepartmentModel { Id = e.Department.Id, Name = e.Department.Name },
                     Position = new PositionModel { Id = e.Position.Id, Name = e.Position.Name },
+                    StartDate = e.StartDate,
+                    EndDate = e.EndDate,
+                    Status = e.Status,
                 };
             }
             return null;
@@ -63,30 +73,38 @@ namespace WebApi.Services
         {
             return _context.Employees.Select(e => new EmployeeModel
             {
-                Id = e.Id,
+                EmployeeID = e.EmployeeID,
                 FullName = e.FullName,
                 Gender = e.Gender,
                 PhoneNumber = e.PhoneNumber,
+                Email = e.Email,
                 Address = e.Address,
-                BirthDay = e.BirthDay,
+                DateOfBirth = e.DateOfBirth,
                 Department = new DepartmentModel { Id = e.Department.Id, Name = e.Department.Name },
-                Position = new PositionModel { Id = e.Position.Id, Name = e.Position.Name }
-            }).ToList(); 
+                Position = new PositionModel { Id = e.Position.Id, Name = e.Position.Name },
+                StartDate = e.StartDate,
+                EndDate = e.EndDate,
+                Status = e.Status,
+            }).ToList();
         }
 
         public void Update(EmployeeModel employeeVM)
         {
-            var e = _context.Employees.SingleOrDefault(e => e.Id == employeeVM.Id);
+            var e = _context.Employees.SingleOrDefault(e => e.EmployeeID == employeeVM.EmployeeID);
             if (e != null)
             {
-                e.Id = employeeVM.Id;
+                e.EmployeeID = employeeVM.EmployeeID;
                 e.FullName = employeeVM.FullName;
                 e.Gender = employeeVM.Gender;
                 e.PhoneNumber = employeeVM.PhoneNumber;
+                e.Email = employeeVM.Email;
                 e.Address = employeeVM.Address;
-                e.BirthDay = employeeVM.BirthDay;
-                e.DepartmentId = employeeVM.Department.Id;
-                e.PositionId = employeeVM.Position.Id;
+                e.DateOfBirth = employeeVM.DateOfBirth;
+                e.Department = new DepartmentEntity { Id = employeeVM.Department.Id, Name = employeeVM.Department.Name };
+                e.Position = new PositionEntity { Id = employeeVM.Position.Id, Name = employeeVM.Position.Name };
+                e.StartDate = employeeVM.StartDate;
+                e.EndDate = employeeVM.EndDate;
+                e.Status = employeeVM.Status;
             }
         }
 
@@ -95,14 +113,18 @@ namespace WebApi.Services
             var allEmployee = _context.Employees.Where(e => e.FullName.Contains(search)).ToList();
             var result = allEmployee.Select(e => new EmployeeModel
             {
-                Id = e.Id,
+                EmployeeID = e.EmployeeID,
                 FullName = e.FullName,
                 Gender = e.Gender,
                 PhoneNumber = e.PhoneNumber,
+                Email = e.Email,
                 Address = e.Address,
-                BirthDay = e.BirthDay,
+                DateOfBirth = e.DateOfBirth,
                 Department = new DepartmentModel { Id = e.Department.Id, Name = e.Department.Name },
                 Position = new PositionModel { Id = e.Position.Id, Name = e.Position.Name },
+                StartDate = e.StartDate,
+                EndDate = e.EndDate,
+                Status = e.Status,
             }).ToList();
             return result;
         }

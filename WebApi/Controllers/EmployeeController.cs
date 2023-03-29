@@ -26,10 +26,11 @@ namespace WebApi.Controllers
                 return Ok(repository.Add(new EmployeeEntity
                 {
                     FullName = model.FullName,
-                    Address = model.Address,
-                    BirthDay = model.BirthDay,
                     Gender = model.Gender,
+                    DateOfBirth = model.DateOfBirth,
                     PhoneNumber = model.PhoneNumber,
+                    Email = model.Email,
+                    Address = model.Address,
                     DepartmentId = model.Department.Id,
                     Department = new DepartmentEntity
                     {
@@ -41,7 +42,10 @@ namespace WebApi.Controllers
                     {
                         Id = model.Position.Id,
                         Name =model.Position.Name
-                    }
+                    },
+                    StartDate = model.StartDate,
+                    EndDate= model.EndDate,
+                    Status = model.Status
                 })); 
             }
             catch

@@ -11,6 +11,11 @@ namespace WebApi.Data
         public DbSet<RefreshTokenEntity> RefreshTokens { get; set; }
         public DbSet<PositionEntity> Positions { get; set; }
         public DbSet<EmployeeEntity> Employees { get; set; }
-        public DbSet<DepartmentEntity> Department { get; set; }
+        public DbSet<DepartmentEntity> Departments { get; set; }
+        public DbSet<AttendanceEntity> Attendances { get; set; }
+        public DbSet<CandidateEntity> Candidates { get; set; }
+        public DbSet<ContractEntity> Contracts { get; set; }
+        public DbSet<EvaluateEntity> Evaluations { get; set; }
+        public DbSet<SalaryEntity> Salarys { get; set;}
     }
 }

@@ -7,26 +7,31 @@ namespace WebApi.Data
     public class EmployeeEntity
     {
         [Key]
-        public int Id { get; set; }
+        public int EmployeeID { get; set; }
         [Required]
         public string FullName { get; set; }
         [Required]
         public string Gender { get; set; }
         [Required]
-        [StringLength(10)]
+        public DateTime DateOfBirth { get; set; }
+        public string Email { get; set; }
         public string PhoneNumber { get; set; }
         [Required]
         public string Address { get; set; }
         [Required]
-        public DateTime BirthDay { get; set; }
+        public int DepartmentId { get; set; }
         [Required]
         public int PositionId { get; set; }
-        [ForeignKey(nameof(PositionId))]
-        public PositionEntity Position { get; set; }
         [Required]
-        public int DepartmentId { get; set; }
-        [ForeignKey(nameof(DepartmentId))]
-        public DepartmentEntity Department { get; set; }
+        public DateTime StartDate { get; set; }
+        [Required]
+        public DateTime EndDate { get; set; }
+        [Required]
+        public int Status { get; set; }
 
+        [ForeignKey(nameof(DepartmentId))]
+        public virtual DepartmentEntity Department { get; set; }
+        [ForeignKey(nameof(PositionId))]
+        public virtual PositionEntity Position { get; set; }
     }
 }
