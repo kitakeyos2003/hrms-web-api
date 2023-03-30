@@ -7,6 +7,8 @@ namespace WebApi.Data
     public class EvaluateEntity
     {
         [Key]
+        public int EvaluateID { get; set; }
+        [Required]
         public int EmployeeID { get; set; }
         [Required]
         public string EvaluationPeriod { get; set; }

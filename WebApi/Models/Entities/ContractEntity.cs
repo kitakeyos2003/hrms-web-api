@@ -19,7 +19,7 @@ namespace WebApi.Data
         [Required]
         public double BasicSalary { get; set; }
         [Required]
-        public string ContractType { get; set; }
+        public int ContractType { get; set; }
         public string Note { get; set; }
 
 

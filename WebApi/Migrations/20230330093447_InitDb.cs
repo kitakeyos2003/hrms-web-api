@@ -203,6 +203,8 @@ namespace WebApi.Migrations
                 name: "evaluate",
                 columns: table => new
                 {
+                    EvaluateID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     EmployeeID = table.Column<int>(type: "int", nullable: false),
                     EvaluationPeriod = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EvaluationCriteria = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -214,7 +216,7 @@ namespace WebApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_evaluate", x => x.EmployeeID);
+                    table.PrimaryKey("PK_evaluate", x => x.EvaluateID);
                     table.ForeignKey(
                         name: "FK_evaluate_employee_EmployeeID",
                         column: x => x.EmployeeID,
@@ -227,6 +229,8 @@ namespace WebApi.Migrations
                 name: "salary",
                 columns: table => new
                 {
+                    SalaryID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     EmployeeID = table.Column<int>(type: "int", nullable: false),
                     BasicSalary = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Allowance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -241,7 +245,7 @@ namespace WebApi.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_salary", x => x.EmployeeID);
+                    table.PrimaryKey("PK_salary", x => x.SalaryID);
                     table.ForeignKey(
                         name: "FK_salary_employee_EmployeeID",
                         column: x => x.EmployeeID,
@@ -281,9 +285,19 @@ namespace WebApi.Migrations
                 column: "PositionId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_evaluate_EmployeeID",
+                table: "evaluate",
+                column: "EmployeeID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_refresh_token_UserId",
                 table: "refresh_token",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_salary_EmployeeID",
+                table: "salary",
+                column: "EmployeeID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

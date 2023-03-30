@@ -56,5 +56,18 @@ namespace WebApi.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError);
             }
         }
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                repository.Delete(id);
+                return Ok();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
     }
 }

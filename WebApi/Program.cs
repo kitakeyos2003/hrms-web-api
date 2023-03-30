@@ -19,6 +19,11 @@ builder.Services.AddDbContext<MyDbContext>(option =>
 builder.Services.AddScoped<IRepository<EmployeeModel, EmployeeEntity>, EmployeeRepository>();
 builder.Services.AddScoped<IRepository<DepartmentModel, DepartmentEntity>, DepartmentRepository>();
 builder.Services.AddScoped<IRepository<PositionModel, PositionEntity>, PositionRepository>();
+builder.Services.AddScoped<IRepository<SalaryModel, SalaryEntity>, SalaryRepository>();
+builder.Services.AddScoped<IRepository<ContractModel, ContractEntity>, ContractRepository>();
+builder.Services.AddScoped<IRepository<AttendanceModel, AttendanceEntity>, AttendanceRepository>();
+builder.Services.AddScoped<IRepository<CandidateModel, CandidateEntity>, CandidateRepository>();
+builder.Services.AddScoped<IRepository<EvaluateModel, EvaluateEntity>, EvaluationRepository>();
 var secretKey = builder.Configuration["AppSettings:SecretKey"];
 var secretKeyBytes =  Encoding.UTF8.GetBytes(secretKey);
 builder.Services.Configure<AppSetting>(builder.Configuration.GetSection("AppSettings"));

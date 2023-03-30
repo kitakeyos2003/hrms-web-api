@@ -7,6 +7,8 @@ namespace WebApi.Data
     public class SalaryEntity
     {
         [Key]
+        public int SalaryID { get; set; }
+        [Required]
         public int EmployeeID { get; set; }
         [Required]
         public decimal BasicSalary { get; set; }

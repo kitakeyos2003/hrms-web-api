@@ -44,6 +44,7 @@ namespace WebApi.Services
             if (e != null)
             {
                 _context.Employees.Remove(e);
+                _context.SaveChanges();
             }
         }
 
@@ -107,6 +108,7 @@ namespace WebApi.Services
                 e.StartDate = employeeVM.StartDate;
                 e.EndDate = employeeVM.EndDate;
                 e.Status = employeeVM.Status;
+                _context.SaveChanges();
             }
         }
 

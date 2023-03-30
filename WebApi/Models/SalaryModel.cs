@@ -2,6 +2,7 @@
 {
     public class SalaryModel
     {
+        public int SalaryID { get; set; }
         public EmployeeModel Employee;
         public decimal BasicSalary { get; set; }
         public decimal Allowance { get; set; }

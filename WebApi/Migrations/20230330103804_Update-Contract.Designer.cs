@@ -12,8 +12,8 @@ using WebApi.Data;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230330004233_InitDb")]
-    partial class InitDb
+    [Migration("20230330103804_Update-Contract")]
+    partial class UpdateContract
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -106,9 +106,6 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OfferStatus")
-                        .HasColumnType("int");
-
                     b.Property<int>("PositionApplied")
                         .HasColumnType("int");
 
@@ -144,9 +141,8 @@ namespace WebApi.Migrations
                     b.Property<double>("BasicSalary")
                         .HasColumnType("float");
 
-                    b.Property<string>("ContractType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ContractType")
+                        .HasColumnType("int");
 
                     b.Property<int>("EmployeeID")
                         .HasColumnType("int");
@@ -245,12 +241,18 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Data.EvaluateEntity", b =>
                 {
-                    b.Property<int>("EmployeeID")
+                    b.Property<int>("EvaluateID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EvaluateID"), 1L, 1);
 
                     b.Property<string>("EmployeeComment")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EmployeeID")
+                        .HasColumnType("int");
 
                     b.Property<string>("EvaluationCriteria")
                         .IsRequired()
@@ -274,7 +276,9 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EmployeeID");
+                    b.HasKey("EvaluateID");
+
+                    b.HasIndex("EmployeeID");
 
                     b.ToTable("evaluate");
                 });
@@ -336,8 +340,11 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Data.SalaryEntity", b =>
                 {
-                    b.Property<int>("EmployeeID")
+                    b.Property<int>("SalaryID")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SalaryID"), 1L, 1);
 
                     b.Property<decimal>("Allowance")
                         .HasColumnType("decimal(18,2)");
@@ -350,6 +357,9 @@ namespace WebApi.Migrations
 
                     b.Property<decimal>("Deductions")
                         .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("EmployeeID")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("GrossSalary")
                         .HasColumnType("decimal(18,2)");
@@ -371,7 +381,9 @@ namespace WebApi.Migrations
                     b.Property<decimal>("Tax")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("EmployeeID");
+                    b.HasKey("SalaryID");
+
+                    b.HasIndex("EmployeeID");
 
                     b.ToTable("salary");
                 });

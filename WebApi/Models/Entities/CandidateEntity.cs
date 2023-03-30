@@ -30,8 +30,6 @@ namespace WebApi.Data
         public string Interviewer { get; set; }
         [Required]
         public int InterviewResult { get; set; }
-        [Required]
-        public int OfferStatus { get; set; }
 
 
         [ForeignKey(nameof(PositionApplied))]

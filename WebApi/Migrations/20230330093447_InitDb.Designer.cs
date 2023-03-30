@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApi.Data;
 
@@ -11,9 +12,10 @@ using WebApi.Data;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230330093447_InitDb")]
+    partial class InitDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -104,6 +106,9 @@ namespace WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("OfferStatus")
+                        .HasColumnType("int");
+
                     b.Property<int>("PositionApplied")
                         .HasColumnType("int");
 
@@ -139,8 +144,9 @@ namespace WebApi.Migrations
                     b.Property<double>("BasicSalary")
                         .HasColumnType("float");
 
-                    b.Property<int>("ContractType")
-                        .HasColumnType("int");
+                    b.Property<string>("ContractType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("EmployeeID")
                         .HasColumnType("int");
