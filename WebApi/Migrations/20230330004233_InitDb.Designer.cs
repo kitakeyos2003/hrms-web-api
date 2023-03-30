@@ -12,7 +12,7 @@ using WebApi.Data;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230329110950_InitDb")]
+    [Migration("20230330004233_InitDb")]
     partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -173,17 +173,17 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Data.DepartmentEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("DepartmentID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentID"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("DepartmentID");
 
                     b.ToTable("department");
                 });
@@ -281,17 +281,17 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Data.PositionEntity", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("PositionID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PositionID"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("PositionID");
 
                     b.ToTable("position");
                 });

@@ -16,7 +16,9 @@ builder.Services.AddDbContext<MyDbContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("MyDb"));
 });
 
-builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
+builder.Services.AddScoped<IRepository<EmployeeModel, EmployeeEntity>, EmployeeRepository>();
+builder.Services.AddScoped<IRepository<DepartmentModel, DepartmentEntity>, DepartmentRepository>();
+builder.Services.AddScoped<IRepository<PositionModel, PositionEntity>, PositionRepository>();
 var secretKey = builder.Configuration["AppSettings:SecretKey"];
 var secretKeyBytes =  Encoding.UTF8.GetBytes(secretKey);
 builder.Services.Configure<AppSetting>(builder.Configuration.GetSection("AppSettings"));

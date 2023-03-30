@@ -8,17 +8,17 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class EmployeeController : ControllerBase
     {
-        private readonly IEmployeeRepository repository;
+        private readonly IRepository<EmployeeModel, EmployeeEntity> repository;
 
-        public EmployeeController(IEmployeeRepository repository)
+        public EmployeeController(IRepository<EmployeeModel, EmployeeEntity> repository)
         {
             this.repository = repository;
         }
 
         [HttpPost]
-        [Authorize]
         public IActionResult Create(EmployeeModel model)
         {
             try
@@ -45,7 +45,6 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        [Authorize]
         public IActionResult GetAll()
         {
             try

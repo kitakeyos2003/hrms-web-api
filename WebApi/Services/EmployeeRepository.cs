@@ -5,7 +5,7 @@ using WebApi.Models;
 
 namespace WebApi.Services
 {
-    public class EmployeeRepository : IEmployeeRepository
+    public class EmployeeRepository : IRepository<EmployeeModel, EmployeeEntity>
     {
         private MyDbContext _context;
 

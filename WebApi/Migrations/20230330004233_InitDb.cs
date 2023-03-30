@@ -13,26 +13,26 @@ namespace WebApi.Migrations
                 name: "department",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    DepartmentID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_department", x => x.Id);
+                    table.PrimaryKey("PK_department", x => x.DepartmentID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "position",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    PositionID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_position", x => x.Id);
+                    table.PrimaryKey("PK_position", x => x.PositionID);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,13 +75,13 @@ namespace WebApi.Migrations
                         name: "FK_candidate_department_DepartmentApplied",
                         column: x => x.DepartmentApplied,
                         principalTable: "department",
-                        principalColumn: "Id",
+                        principalColumn: "DepartmentID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_candidate_position_PositionApplied",
                         column: x => x.PositionApplied,
                         principalTable: "position",
-                        principalColumn: "Id",
+                        principalColumn: "PositionID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -110,13 +110,13 @@ namespace WebApi.Migrations
                         name: "FK_employee_department_DepartmentId",
                         column: x => x.DepartmentId,
                         principalTable: "department",
-                        principalColumn: "Id",
+                        principalColumn: "DepartmentID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_employee_position_PositionId",
                         column: x => x.PositionId,
                         principalTable: "position",
-                        principalColumn: "Id",
+                        principalColumn: "PositionID",
                         onDelete: ReferentialAction.Cascade);
                 });
 
