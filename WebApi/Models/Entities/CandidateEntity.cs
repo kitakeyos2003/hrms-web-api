@@ -15,8 +15,6 @@ namespace WebApi.Data
         [Required]
         public int DepartmentApplied { get; set; }
         [Required]
-        public string Resume { get; set; }
-        [Required]
         public string ContactInformation { get; set; }
         [Required]
         public string Education { get; set; }

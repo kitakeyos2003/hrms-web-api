@@ -31,7 +31,6 @@ namespace WebApi.Controllers
                     Education = model.Education,
                     DepartmentApplied = model.DepartmentApplied.Id,
                     PositionApplied = model.PositionApplied.Id,
-                    Resume = model.Resume,
                     Skills = model.Skills,
                     WorkExperience = model.WorkExperience,
                     InterviewDate = model.InterviewDate,

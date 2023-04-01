@@ -15,6 +15,9 @@ namespace WebApi.Services
         {
             _context.Candidates.Add(e);
             _context.SaveChanges();
+            var ne = _context.Entry(e);
+            ne.Reference(a => a.Department).Load();
+            ne.Reference(a => a.Position).Load();
             return new CandidateModel
             {
                 CandidateID = e.CandidateID,
@@ -34,7 +37,6 @@ namespace WebApi.Services
                 InterviewDate = e.InterviewDate,
                 Interviewer = e.Interviewer,
                 InterviewResult = e.InterviewResult,
-                Resume = e.Resume,
                 Skills = e.Skills,
                 WorkExperience = e.WorkExperience
             };
@@ -74,7 +76,6 @@ namespace WebApi.Services
                     InterviewDate = e.InterviewDate,
                     Interviewer = e.Interviewer,
                     InterviewResult = e.InterviewResult,
-                    Resume = e.Resume,
                     Skills = e.Skills,
                     WorkExperience = e.WorkExperience
                 };
@@ -103,7 +104,6 @@ namespace WebApi.Services
                 InterviewDate = e.InterviewDate,
                 Interviewer = e.Interviewer,
                 InterviewResult = e.InterviewResult,
-                Resume = e.Resume,
                 Skills = e.Skills,
                 WorkExperience = e.WorkExperience
             }).ToList();
@@ -115,7 +115,6 @@ namespace WebApi.Services
             if (e != null)
             {
                 e.FullName = t.FullName;
-                e.Resume = t.Resume;
                 e.Skills = t.Skills;
                 e.WorkExperience = t.WorkExperience;
                 e.InterviewDate = t.InterviewDate;
