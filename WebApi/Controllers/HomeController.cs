@@ -23,5 +23,20 @@ namespace WebApi.Controllers
                 ResignedLastMonth= 30
             });
         }
+
+        [Route("/version")]
+        [HttpGet]
+        public IActionResult GetVersion()
+        {
+            DateTime releaseDate = DateTime.Now;
+            return Ok(new
+            {
+                VersionNumber = "1.0.0.0",
+                ReleaseDate = releaseDate,
+                Description = "Phần mềm quản lý nhân sự",
+                PhoneNumber = "0348658498",
+                Email = "kitakeyos@gmail.com"
+            });
+        }
     }
 }
