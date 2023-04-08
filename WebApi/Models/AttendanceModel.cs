@@ -8,9 +8,7 @@
         public DateTime ShiftEndTime { get; set; }
         public DateTime ActualStartTime { get; set; }
         public DateTime ActualEndTime { get; set; }
-        public TimeSpan LateTime { get; set; }
-        public TimeSpan EarlyLeaveTime { get; set; }
-        public TimeSpan Overtime { get; set; }
+        public int Overtime { get; set; }
         public int AttendanceStatus { get; set; }
         public string AttendanceNote { get; set; }
         public virtual EmployeeModel Employee { get; set; }

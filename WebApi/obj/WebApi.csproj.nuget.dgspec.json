@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kitakeyos\\Documents\\c-sharp\\project\\hrms-web-api\\WebApi\\WebApi.csproj": {}
+    "C:\\Users\\Admin\\source\\repos\\WebApi\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kitakeyos\\Documents\\c-sharp\\project\\hrms-web-api\\WebApi\\WebApi.csproj": {
+    "C:\\Users\\Admin\\source\\repos\\WebApi\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kitakeyos\\Documents\\c-sharp\\project\\hrms-web-api\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\source\\repos\\WebApi\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\kitakeyos\\Documents\\c-sharp\\project\\hrms-web-api\\WebApi\\WebApi.csproj",
-        "packagesPath": "C:\\Users\\kitakeyos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kitakeyos\\Documents\\c-sharp\\project\\hrms-web-api\\WebApi\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\source\\repos\\WebApi\\WebApi\\WebApi.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\source\\repos\\WebApi\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kitakeyos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,8 +77,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -90,7 +89,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

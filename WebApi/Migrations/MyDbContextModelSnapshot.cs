@@ -46,17 +46,11 @@ namespace WebApi.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("EarlyLeaveTime")
-                        .HasColumnType("time");
-
                     b.Property<int>("EmployeeID")
                         .HasColumnType("int");
 
-                    b.Property<TimeSpan>("LateTime")
-                        .HasColumnType("time");
-
-                    b.Property<TimeSpan>("Overtime")
-                        .HasColumnType("time");
+                    b.Property<int>("Overtime")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ShiftEndTime")
                         .HasColumnType("datetime2");

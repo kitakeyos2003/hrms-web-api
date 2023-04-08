@@ -33,8 +33,6 @@ namespace WebApi.Controllers
                     ShiftStartTime = model.ShiftStartTime,
                     ShiftEndTime = model.ShiftEndTime,
                     Overtime = model.Overtime,
-                    LateTime = model.LateTime,
-                    EarlyLeaveTime = model.EarlyLeaveTime,
                     Date = model.Date,
                     AttendanceStatus = model.AttendanceStatus,
                 }));

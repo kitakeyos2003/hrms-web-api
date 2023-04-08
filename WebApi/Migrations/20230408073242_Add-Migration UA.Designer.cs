@@ -12,8 +12,8 @@ using WebApi.Data;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230330103804_Update-Contract")]
-    partial class UpdateContract
+    [Migration("20230408073242_Add-Migration UA")]
+    partial class AddMigrationUA
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,17 +48,11 @@ namespace WebApi.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("EarlyLeaveTime")
-                        .HasColumnType("time");
-
                     b.Property<int>("EmployeeID")
                         .HasColumnType("int");
 
-                    b.Property<TimeSpan>("LateTime")
-                        .HasColumnType("time");
-
-                    b.Property<TimeSpan>("Overtime")
-                        .HasColumnType("time");
+                    b.Property<int>("Overtime")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("ShiftEndTime")
                         .HasColumnType("datetime2");
@@ -108,10 +102,6 @@ namespace WebApi.Migrations
 
                     b.Property<int>("PositionApplied")
                         .HasColumnType("int");
-
-                    b.Property<string>("Resume")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Skills")
                         .IsRequired()

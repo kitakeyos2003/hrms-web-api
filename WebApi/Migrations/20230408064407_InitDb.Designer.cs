@@ -12,8 +12,8 @@ using WebApi.Data;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20230330102702_UC")]
-    partial class UC
+    [Migration("20230408064407_InitDb")]
+    partial class InitDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -48,17 +48,8 @@ namespace WebApi.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("EarlyLeaveTime")
-                        .HasColumnType("time");
-
                     b.Property<int>("EmployeeID")
                         .HasColumnType("int");
-
-                    b.Property<TimeSpan>("LateTime")
-                        .HasColumnType("time");
-
-                    b.Property<TimeSpan>("Overtime")
-                        .HasColumnType("time");
 
                     b.Property<DateTime>("ShiftEndTime")
                         .HasColumnType("datetime2");
@@ -109,10 +100,6 @@ namespace WebApi.Migrations
                     b.Property<int>("PositionApplied")
                         .HasColumnType("int");
 
-                    b.Property<string>("Resume")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Skills")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -141,9 +128,8 @@ namespace WebApi.Migrations
                     b.Property<double>("BasicSalary")
                         .HasColumnType("float");
 
-                    b.Property<string>("ContractType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ContractType")
+                        .HasColumnType("int");
 
                     b.Property<int>("EmployeeID")
                         .HasColumnType("int");

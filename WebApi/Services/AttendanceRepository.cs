@@ -38,8 +38,6 @@ namespace WebApi.Services
                 AttendanceNote = e.AttendanceNote,
                 AttendanceStatus = e.AttendanceStatus,
                 Date = e.Date,
-                EarlyLeaveTime = e.EarlyLeaveTime,
-                LateTime = e.LateTime,
                 Overtime = e.Overtime,
                 ShiftEndTime = e.ShiftEndTime,
                 ShiftStartTime=e.ShiftStartTime,
@@ -84,8 +82,6 @@ namespace WebApi.Services
                     AttendanceNote = e.AttendanceNote,
                     AttendanceStatus = e.AttendanceStatus,
                     Date = e.Date,
-                    EarlyLeaveTime = e.EarlyLeaveTime,
-                    LateTime = e.LateTime,
                     Overtime = e.Overtime,
                     ShiftEndTime = e.ShiftEndTime,
                     ShiftStartTime = e.ShiftStartTime,
@@ -119,8 +115,6 @@ namespace WebApi.Services
                 AttendanceNote = e.AttendanceNote,
                 AttendanceStatus = e.AttendanceStatus,
                 Date = e.Date,
-                EarlyLeaveTime = e.EarlyLeaveTime,
-                LateTime = e.LateTime,
                 Overtime = e.Overtime,
                 ShiftEndTime = e.ShiftEndTime,
                 ShiftStartTime = e.ShiftStartTime,
@@ -138,8 +132,6 @@ namespace WebApi.Services
                 e.AttendanceNote = t.AttendanceNote;
                 e.AttendanceStatus = t.AttendanceStatus;
                 e.Date = t.Date;
-                e.EarlyLeaveTime = t.EarlyLeaveTime;
-                e.LateTime = t.LateTime;
                 e.Overtime = t.Overtime;
                 e.ShiftEndTime = t.ShiftEndTime;
                 e.ShiftStartTime = t.ShiftStartTime;

@@ -21,11 +21,7 @@ namespace WebApi.Data
         [Required]
         public DateTime ActualEndTime { get; set; }
         [Required]
-        public TimeSpan LateTime { get; set; }
-        [Required]
-        public TimeSpan EarlyLeaveTime { get; set; }
-        [Required]
-        public TimeSpan Overtime { get; set; }
+        public int Overtime { get; set; }
         [Required]
         public int AttendanceStatus { get; set; }
         public string AttendanceNote { get; set; }

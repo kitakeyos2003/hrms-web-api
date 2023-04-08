@@ -4,23 +4,23 @@
 
 namespace WebApi.Migrations
 {
-    public partial class UC : Migration
+    public partial class AddMigrationUA : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "OfferStatus",
-                table: "candidate");
+            migrationBuilder.AddColumn<int>(
+                name: "Overtime",
+                table: "attendance",
+                type: "int",
+                nullable: false,
+                defaultValue: 0);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "OfferStatus",
-                table: "candidate",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
+            migrationBuilder.DropColumn(
+                name: "Overtime",
+                table: "attendance");
         }
     }
 }
