@@ -88,7 +88,7 @@ namespace WebApi.Services
                 StartDate = e.StartDate,
                 EndDate = e.EndDate,
                 Status = e.Status,
-            }).ToList();
+            }).OrderBy(e => e.EmployeeID).ToList();
         }
 
         public void Update(EmployeeModel employeeVM)

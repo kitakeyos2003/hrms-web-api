@@ -14,7 +14,12 @@ namespace WebApi.Services
         public EvaluateModel Add(EvaluateEntity e)
         {
             _context.Evaluations.Add(e);
-            _context.SaveChanges();
+            _context.SaveChanges(); 
+            var ne = _context.Entry(e);
+            ne.Reference(a => a.Employee).Load();
+            var n = _context.Entry(e.Employee);
+            n.Reference(a => a.Department).Load();
+            n.Reference(a => a.Position).Load();
             return new EvaluateModel
             {
                 EvaluateID = e.EvaluateID,
@@ -115,7 +120,7 @@ namespace WebApi.Services
                 EvaluationScore = e.EvaluationScore,
                 ImprovementPlan = e.ImprovementPlan,
                 ManagerComment = e.ManagerComment
-            }).ToList();
+            }).OrderBy(e => e.EvaluateID).ToList();
         }
 
         public void Update(EvaluateModel t)

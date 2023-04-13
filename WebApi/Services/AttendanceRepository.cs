@@ -15,6 +15,11 @@ namespace WebApi.Services
         {
             _context.Attendances.Add(e);
             _context.SaveChanges();
+            var ne = _context.Entry(e);
+            ne.Reference(a => a.Employee).Load();
+            var n = _context.Entry(e.Employee);
+            n.Reference(a => a.Department).Load();
+            n.Reference(a => a.Position).Load();
             return new AttendanceModel
             {
                 AttendanceID = e.AttendanceID,
@@ -40,7 +45,7 @@ namespace WebApi.Services
                 Date = e.Date,
                 Overtime = e.Overtime,
                 ShiftEndTime = e.ShiftEndTime,
-                ShiftStartTime=e.ShiftStartTime,
+                ShiftStartTime = e.ShiftStartTime,
             };
         }
 
@@ -118,7 +123,7 @@ namespace WebApi.Services
                 Overtime = e.Overtime,
                 ShiftEndTime = e.ShiftEndTime,
                 ShiftStartTime = e.ShiftStartTime,
-            }).ToList();
+            }).OrderBy(e => e.AttendanceID).ToList();
         }
 
         public void Update(AttendanceModel t)

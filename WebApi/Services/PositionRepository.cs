@@ -51,7 +51,7 @@ namespace WebApi.Services
             {
                 Id = e.PositionID,
                 Name = e.Name,
-            }).ToList();
+            }).OrderBy(e => e.Id).ToList();
         }
 
         public void Update(PositionModel t)

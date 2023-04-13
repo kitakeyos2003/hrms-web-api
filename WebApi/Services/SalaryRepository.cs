@@ -14,7 +14,12 @@ namespace WebApi.Services
         public SalaryModel Add(SalaryEntity e)
         {
             _context.Salarys.Add(e);
-            _context.SaveChanges();
+            _context.SaveChanges(); 
+            var ne = _context.Entry(e);
+            ne.Reference(a => a.Employee).Load();
+            var n = _context.Entry(e.Employee);
+            n.Reference(a => a.Department).Load();
+            n.Reference(a => a.Position).Load();
             return new SalaryModel
             {
                 SalaryID = e.SalaryID,
@@ -124,7 +129,7 @@ namespace WebApi.Services
                 PaymentMethod = e.PaymentMethod,
                 PaySlip = e.PaySlip,
                 Tax = e.Tax
-            }).ToList();
+            }).OrderBy(e => e.SalaryID).ToList();
         }
 
         public void Update(SalaryModel t)

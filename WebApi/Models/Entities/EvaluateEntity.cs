@@ -11,7 +11,7 @@ namespace WebApi.Data
         [Required]
         public int EmployeeID { get; set; }
         [Required]
-        public string EvaluationPeriod { get; set; }
+        public DateTime EvaluationPeriod { get; set; }
         [Required]
         public string EvaluationCriteria { get; set; }
         [Required]

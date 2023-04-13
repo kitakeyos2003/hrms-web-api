@@ -106,7 +106,7 @@ namespace WebApi.Services
                 InterviewResult = e.InterviewResult,
                 Skills = e.Skills,
                 WorkExperience = e.WorkExperience
-            }).ToList();
+            }).OrderBy(e => e.CandidateID).ToList();
         }
 
         public void Update(CandidateModel t)

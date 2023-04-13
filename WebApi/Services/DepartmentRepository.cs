@@ -53,7 +53,7 @@ namespace WebApi.Services
             {
                 Id = e.DepartmentID,
                 Name = e.Name,
-            }).ToList();
+            }).OrderBy(e => e.Id).ToList();
         }
 
         public void Update(DepartmentModel t)

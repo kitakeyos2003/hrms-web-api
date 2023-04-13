@@ -15,6 +15,11 @@ namespace WebApi.Services
         {
             _context.Contracts.Add(e);
             _context.SaveChanges();
+            var ne = _context.Entry(e);
+            ne.Reference(a => a.Employee).Load();
+            var n = _context.Entry(e.Employee);
+            n.Reference(a => a.Department).Load();
+            n.Reference(a => a.Position).Load();
             return new ContractModel
             {
                 ContractID = e.ContractID,
@@ -112,7 +117,7 @@ namespace WebApi.Services
                 StartDate = e.StartDate,
                 WorkingTime = e.WorkingTime,
                 Note = e.Note,
-            }).ToList();
+            }).OrderBy(e => e.ContractID).ToList();
         }
 
         public void Update(ContractModel t)

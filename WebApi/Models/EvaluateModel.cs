@@ -4,7 +4,7 @@
     {
         public int EvaluateID { get; set; }
         public EmployeeModel Employee { get; set; }
-        public string EvaluationPeriod { get; set; }
+        public DateTime EvaluationPeriod { get; set; }
         public string EvaluationCriteria { get; set; }
         public double EvaluationScore { get; set; }
         public string ManagerComment { get; set; }
