@@ -98,7 +98,8 @@ namespace WebApi.Services
                 NetSalary = e.NetSalary,
                 PaymentDate = e.PaymentDate,
                 PaymentMethod = e.PaymentMethod,
-                Tax = e.Tax
+                Tax = e.Tax,
+                CreatedAt = e.CreatedAt
             };
         }
 
@@ -178,7 +179,8 @@ namespace WebApi.Services
                 NetSalary = e.NetSalary,
                 PaymentDate = e.PaymentDate,
                 PaymentMethod = e.PaymentMethod,
-                Tax = e.Tax
+                Tax = e.Tax,
+                CreatedAt = e.CreatedAt
             }).OrderBy(e => e.SalaryID).ToList();
         }
 
@@ -198,6 +200,7 @@ namespace WebApi.Services
                 e.PaymentDate = t.PaymentDate;
                 e.PaymentMethod = t.PaymentMethod;
                 e.Tax = t.Tax;
+                e.CreatedAt = t.CreatedAt;
                 _context.SaveChanges();
             }
         }

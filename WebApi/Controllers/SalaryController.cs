@@ -49,7 +49,8 @@ namespace WebApi.Controllers
                     NetSalary = model.NetSalary,
                     PaymentDate = model.PaymentDate,
                     PaymentMethod = model.PaymentMethod,
-                    Tax = model.Tax
+                    Tax = model.Tax,
+                    CreatedAt = model.CreatedAt,
                 }));
             }
             catch
