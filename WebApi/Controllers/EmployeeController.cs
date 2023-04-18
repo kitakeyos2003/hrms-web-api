@@ -9,7 +9,7 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class EmployeeController : ControllerBase
+    public class EmployeeController : ControllerBase, ICrudService<EmployeeModel>
     {
         private readonly IRepository<EmployeeModel, EmployeeEntity> repository;
 
@@ -79,6 +79,18 @@ namespace WebApi.Controllers
             {
                 repository.Update(model);
                 return Ok();
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
+        }
+        [HttpGet("{{id}}")]
+        public IActionResult Get(int id)
+        {
+            try
+            {
+                return Ok(repository.Get(id));
             }
             catch
             {

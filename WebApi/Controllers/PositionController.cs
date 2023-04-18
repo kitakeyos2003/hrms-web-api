@@ -10,7 +10,7 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class PositionController : ControllerBase
+    public class PositionController : ControllerBase, ICrudService<PositionModel>
     {
         private readonly IRepository<PositionModel, PositionEntity> repository;
 

@@ -10,7 +10,7 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class DepartmentController : ControllerBase
+    public class DepartmentController : ControllerBase, ICrudService<DepartmentModel>
     {
         private readonly IRepository<DepartmentModel, DepartmentEntity> repository;
 

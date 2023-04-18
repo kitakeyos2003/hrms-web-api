@@ -9,7 +9,7 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class AttendanceController : Controller
+    public class AttendanceController : Controller, ICrudService<AttendanceModel>
     {
         private readonly IRepository<AttendanceModel, AttendanceEntity> repository;
 

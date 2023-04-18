@@ -9,7 +9,7 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class ContractController : ControllerBase
+    public class ContractController : ControllerBase, ICrudService<ContractModel>
     {
         private readonly IRepository<ContractModel, ContractEntity> repository;
 

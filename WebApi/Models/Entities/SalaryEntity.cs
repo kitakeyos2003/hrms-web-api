@@ -11,6 +11,8 @@ namespace WebApi.Data
         [Required]
         public int EmployeeID { get; set; }
         [Required]
+        public int WorkingDays { get; set; }
+        [Required]
         public decimal BasicSalary { get; set; }
         [Required]
         public decimal Allowance { get; set; }
@@ -24,12 +26,11 @@ namespace WebApi.Data
         public decimal Deductions { get; set; }
         [Required]
         public decimal NetSalary { get; set; }
-        [Required]
         public DateTime PaymentDate { get; set; }
+        public int PaymentMethod { get; set; }
+
         [Required]
-        public string PaymentMethod { get; set; }
-        [Required]
-        public string PaySlip { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
 
         [ForeignKey(nameof(EmployeeID))]

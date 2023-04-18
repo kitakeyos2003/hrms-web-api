@@ -9,13 +9,27 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
-    public class SalaryController : ControllerBase
+    public class SalaryController : ControllerBase, ICrudService<SalaryModel>
     {
         private readonly IRepository<SalaryModel, SalaryEntity> repository;
 
         public SalaryController(IRepository<SalaryModel, SalaryEntity> repository)
         {
             this.repository = repository;
+        }
+
+        [HttpPost("GenerateSalary")]
+        public IActionResult GenerateSalary(List<EmployeeModel> models, DateTime startDate, DateTime endDate)
+        {
+            try
+            {
+                SalaryRepository salaryRepository = (SalaryRepository) repository;
+                return Ok(salaryRepository.Generate(models, startDate, endDate));
+            }
+            catch
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
         }
 
         [HttpPost]
@@ -35,7 +49,6 @@ namespace WebApi.Controllers
                     NetSalary = model.NetSalary,
                     PaymentDate = model.PaymentDate,
                     PaymentMethod = model.PaymentMethod,
-                    PaySlip = model.PaySlip,
                     Tax = model.Tax
                 }));
             }

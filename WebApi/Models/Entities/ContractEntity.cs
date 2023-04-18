@@ -15,9 +15,9 @@ namespace WebApi.Data
         [Required]
         public DateTime EndDate { get; set; }
         [Required]
-        public double WorkingTime { get; set; }
+        public int WorkingTime { get; set; }
         [Required]
-        public double BasicSalary { get; set; }
+        public decimal BasicSalary { get; set; }
         [Required]
         public int ContractType { get; set; }
         public string Note { get; set; }

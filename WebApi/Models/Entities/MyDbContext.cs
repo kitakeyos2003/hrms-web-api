@@ -17,5 +17,6 @@ namespace WebApi.Data
         public DbSet<ContractEntity> Contracts { get; set; }
         public DbSet<EvaluateEntity> Evaluations { get; set; }
         public DbSet<SalaryEntity> Salarys { get; set;}
+        public DbSet<AllowanceEntity> Allowances { get; set; }
     }
 }

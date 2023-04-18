@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Data;
 using WebApi.Models;
@@ -8,7 +9,8 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CandidateController : ControllerBase
+    [Authorize]
+    public class CandidateController : ControllerBase, ICrudService<CandidateModel>
     {
         private readonly IRepository<CandidateModel, CandidateEntity> repository;
 

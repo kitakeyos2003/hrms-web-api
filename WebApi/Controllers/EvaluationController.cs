@@ -8,7 +8,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EvaluationController : ControllerBase
+    public class EvaluationController : ControllerBase, ICrudService<EvaluateModel>
     {
         private readonly IRepository<EvaluateModel, EvaluateEntity> repository;
 
