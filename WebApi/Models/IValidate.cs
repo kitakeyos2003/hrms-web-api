@@ -1,6 +1,9 @@
-﻿namespace WebApi.Models
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace WebApi.Models
 {
-    public interface IValidate
+    public interface IValidate<T>
     {
+        Task<IActionResult> Validate(T model);
     }
 }

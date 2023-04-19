@@ -13,7 +13,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    public class UserController : ControllerBase, IValidate<LoginModel>
     {
         private readonly MyDbContext _context;
         private readonly AppSetting _appSettings;
