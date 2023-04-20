@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Data;
+using WebApi.Models;
+using WebApi.Services;
 
 namespace WebApi.Controllers
 {
@@ -8,19 +11,26 @@ namespace WebApi.Controllers
     [ApiController]
     public class HomeController : ControllerBase
     {
+        private readonly IRepository<EmployeeModel, EmployeeEntity> repository;
+
+        public HomeController(IRepository<EmployeeModel, EmployeeEntity> repository)
+        {
+            this.repository = repository;
+        }
         [HttpGet]
         [Authorize]
         public IActionResult GetInfo()
         {
+            List<EmployeeModel> employees = repository.GetAll();
             return Ok(new
             {
-                TotalEmployees = 10,
-                NewEmployeesThisMonth = 100,
-                NewEmployeesLastMonth = 10,
-                SuccessfulProbationThisMonth = 20,
+                TotalEmployees = employees.Count,
+                NewEmployeesThisMonth = employees.Count,
+                NewEmployeesLastMonth = 1,
+                SuccessfulProbationThisMonth = employees.Count,
                 SuccessfulProbationLastMonth = 1,
-                ResignedThisMonth = 10,
-                ResignedLastMonth= 30
+                ResignedThisMonth = 0,
+                ResignedLastMonth= 1
             });
         }
 
@@ -33,9 +43,9 @@ namespace WebApi.Controllers
             {
                 VersionNumber = "1.0.0.0",
                 ReleaseDate = releaseDate,
-                Description = "Phần mềm quản lý nhân sự",
-                PhoneNumber = "0348658498",
-                Email = "kitakeyos@gmail.com"
+                Description = "Phần mềm quản lý nhân sự được thiết kế bởi nhóm 4\nKhoa: Cônng nghệ thông tin\nLớp: DCCNTT12.10.1 - Khóa: K12\nTrường Đại học công nghệ Đông Á",
+                PhoneNumber = "0348xxxxxx",
+                Email = "hrms.xxxxx@gmail.com"
             });
         }
     }

@@ -14,5 +14,11 @@
             }
             return sundayCount;
         }
+
+        public static int DaysBetween(DateTime date1, DateTime date2)
+        {
+            TimeSpan timeSpan = date2 - date1;
+            return timeSpan.Days;
+        }
     }
 }
