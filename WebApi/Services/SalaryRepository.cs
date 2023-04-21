@@ -15,8 +15,7 @@ namespace WebApi.Services
         public List<SalaryModel> Generate(List<EmployeeModel> models, DateTime startDate, DateTime endDate)
         {
             List<SalaryModel> result = new List<SalaryModel>(); 
-            TimeSpan timeSpan = endDate - startDate;
-            int days = timeSpan.Days;
+            int days = DateTimeHelper.DaysBetween(startDate, endDate);
             int sundays = DateTimeHelper.CountSundays(startDate, endDate);
             foreach (EmployeeModel model in models)
             {
@@ -38,9 +37,13 @@ namespace WebApi.Services
                             decimal basicSalary = contract.BasicSalary;
                             decimal pSalary = Math.Round((workingDays * (basicSalary / (30 - sundays))) / 1000) * 1000;
                             decimal pAllowance = allowance.Amount;
+                            if (workingDays >= days - sundays)
+                            {
+                                pSalary += pAllowance;
+                            }
                             decimal bonus = 0;
                             decimal tax = 10;
-                            decimal grossSalary = pSalary + pAllowance + bonus - deductions;
+                            decimal grossSalary = pSalary + bonus - deductions;
                             decimal netSalary = grossSalary - (grossSalary * tax / 100);
                             SalaryModel salary = Add(new SalaryEntity
                             {
